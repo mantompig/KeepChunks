@@ -18,17 +18,23 @@ repositories {
 }
 
 dependencies {
-    // Paper 26.3 API
+    // Paper 26.3
     compileOnly("io.papermc.paper:paper-api:26.3.build.+")
 
-    // WorldEdit integration
-    compileOnly("com.sk89q.worldedit:worldedit-bukkit:7.3.+")
+    // WorldEdit
+    compileOnly("com.sk89q.worldedit:worldedit-bukkit:7.4.6")
 
-    // WorldGuard integration
-    compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.+")
+    // WorldGuard
+    compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.22-SNAPSHOT")
 
-    // JUnit (for future tests)
+    // Tests
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
+}
+
+configurations.configureEach {
+    exclude(group = "com.google.guava", module = "guava")
+    exclude(group = "com.google.code.gson", module = "gson")
+    exclude(group = "org.apache.logging.log4j", module = "log4j-bom")
 }
 
 java {
